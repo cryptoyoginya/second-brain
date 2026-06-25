@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Obsidian — конфиг приложения и кэши воркспейса не коммитим
+.obsidian/workspace*
+.obsidian/cache
+.obsidian/plugins/*/data.json
+.trash/
+
+# Временные/черновики
+.context/
+*.tmp
