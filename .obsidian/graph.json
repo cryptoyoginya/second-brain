@@ -9,28 +9,43 @@
   "colorGroups": [
     {
       "query": "tag:#тип/персона",
-      "color": { "a": 1, "rgb": 5025616 }
+      "color": {
+        "a": 1,
+        "rgb": 5025616
+      }
     },
     {
       "query": "tag:#тип/конспект",
-      "color": { "a": 1, "rgb": 16750592 }
+      "color": {
+        "a": 1,
+        "rgb": 16750592
+      }
     },
     {
       "query": "tag:#тип/идея",
-      "color": { "a": 1, "rgb": 1357990 }
+      "color": {
+        "a": 1,
+        "rgb": 1357990
+      }
     },
     {
       "query": "tag:#тип/концепт",
-      "color": { "a": 1, "rgb": 11031543 }
+      "color": {
+        "a": 1,
+        "rgb": 11031543
+      }
     },
     {
       "query": "path:raw/",
-      "color": { "a": 1, "rgb": 7041664 }
+      "color": {
+        "a": 1,
+        "rgb": 7041664
+      }
     }
   ],
   "collapse-display": false,
   "showArrow": true,
-  "textFadeMultiplier": 2,
+  "textFadeMultiplier": -0.6,
   "nodeSizeMultiplier": 1.4,
   "lineSizeMultiplier": 1.2,
   "collapse-forces": false,
@@ -38,6 +53,6 @@
   "repelStrength": 13,
   "linkStrength": 1,
   "linkDistance": 220,
-  "scale": 1,
+  "scale": 0.9424366168933533,
   "close": true
 }

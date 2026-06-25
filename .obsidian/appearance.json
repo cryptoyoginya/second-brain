@@ -1,5 +1,7 @@
 {
   "baseFontSize": 17,
   "accentColor": "#a855f7",
-  "enabledCssSnippets": ["second-brain"]
+  "enabledCssSnippets": [
+    "second-brain"
+  ]
 }
