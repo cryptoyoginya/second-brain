@@ -1,0 +1,93 @@
+/* ===== Second Brain — оформление вики ===== */
+
+/* Типографика чтения */
+.markdown-rendered,
+.markdown-preview-view,
+.cm-content {
+  --font-text-size: 17px;
+  line-height: 1.7;
+  letter-spacing: 0.1px;
+}
+
+.markdown-preview-view {
+  --file-line-width: 760px;
+}
+
+/* Заголовки */
+.markdown-rendered h1,
+.cm-line.HyperMD-header-1 {
+  font-weight: 750;
+  letter-spacing: -0.5px;
+  padding-bottom: 0.25em;
+  border-bottom: 2px solid var(--interactive-accent);
+}
+
+.markdown-rendered h2 {
+  margin-top: 1.6em;
+  font-weight: 680;
+  color: var(--text-normal);
+}
+
+.markdown-rendered h2::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.5em;
+  border-radius: 2px;
+  background: var(--interactive-accent);
+  vertical-align: middle;
+  opacity: 0.85;
+}
+
+/* Внутренние ссылки — мягкие пилюли */
+.markdown-rendered a.internal-link {
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--interactive-accent) 45%, transparent);
+  padding-bottom: 1px;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+.markdown-rendered a.internal-link:hover {
+  background: color-mix(in srgb, var(--interactive-accent) 14%, transparent);
+  border-radius: 4px;
+  border-color: var(--interactive-accent);
+}
+
+/* Теги — компактные пилюли */
+.markdown-rendered a.tag {
+  font-size: 0.74em;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--interactive-accent) 12%, transparent);
+  color: var(--text-muted);
+  border: none;
+}
+
+/* Callout-блоки — крупнее и мягче */
+.markdown-rendered .callout {
+  border-radius: 12px;
+  border: none;
+  box-shadow: inset 4px 0 0 0 var(--callout-color);
+  padding: 0.1em 1em;
+  margin: 1.1em 0;
+}
+.markdown-rendered .callout[data-callout="tip"]      { --callout-color: 168, 85, 247; }
+.markdown-rendered .callout[data-callout="check"]    { --callout-color: 20, 184, 166; }
+.markdown-rendered .callout[data-callout="quote"]    { --callout-color: 148, 163, 184; }
+.markdown-rendered .callout[data-callout="abstract"] { --callout-color: 255, 152, 0; }
+.markdown-rendered .callout[data-callout="info"]     { --callout-color: 96, 165, 250; }
+
+.markdown-rendered .callout-title { padding: 0.6em 0 0.2em; font-weight: 700; }
+
+/* Цитаты-эпиграфы внутри callout quote — крупнее */
+.markdown-rendered .callout[data-callout="quote"] .callout-content {
+  font-style: italic;
+  color: var(--text-normal);
+}
+
+/* Горизонтальная линия */
+.markdown-rendered hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, var(--interactive-accent), transparent);
+}
