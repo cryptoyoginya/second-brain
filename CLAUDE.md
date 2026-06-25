@@ -20,7 +20,7 @@
 Ценность — в `wiki/`, а не в куче сырья. Не копить `raw/` без обработки.
 
 ```
-raw/        articles/ papers/ notes/ telegram/ images/   — неизменяемые исходники
+raw/        articles/ papers/ notes/ telegram/ youtube/ images/   — неизменяемые исходники
 wiki/       index.md (каталог) · log.md (лог) · _templates/
 outputs/    отчёты и аналитика
 CLAUDE.md   эта схема (эволюционирует со временем)
@@ -69,6 +69,7 @@ tags: []
 - `learning` — обучение, продуктивность
 - `business` — продукт, маркетинг, найм
 - `personal` — здоровье, идеи, заметки
+- `religion` — религиоведение, философия, буддизм
 
 ## Дисциплина
 
