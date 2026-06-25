@@ -10,3 +10,6 @@
 # Временные/черновики
 .context/
 *.tmp
+
+# Obsidian служебное
+Untitled.canvas
