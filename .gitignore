@@ -11,5 +11,9 @@
 .context/
 *.tmp
 
-# Obsidian служебное
+# Obsidian служебное (пустые холсты, в т.ч. русская локаль)
 Untitled.canvas
+Без названия.canvas
+
+# Claude Code — локальные настройки/разрешения (машинно-зависимые)
+.claude/settings.local.json
