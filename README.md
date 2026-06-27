@@ -6,7 +6,7 @@
 
 Открывается как **Obsidian vault**. Приватный репозиторий.
 
-> [!NOTE]
+> [!Философия]
 > Принцип: the human's job is to curate sources, direct the analysis, ask good questions, and think about what it all means. The LLM's job is everything else 🙏
 
 ---
