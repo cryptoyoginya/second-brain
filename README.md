@@ -91,6 +91,8 @@ flowchart TD
     class PROFILE profile;
 ```
 
+Скачать схему: [PNG](assets/pipeline.png) · [SVG](assets/pipeline.svg) (векторный, для печати/больших размеров). Исходник — [`assets/pipeline.mmd`](assets/pipeline.mmd).
+
 Полный пайплайн агента: **scout → capture → triage → package → [query · apply · digest · decide · publish] → lint**.
 Анализ — **действие, ответ или решение под цель**:
 - **Scout** — сам нахожу крутые источники под профиль и приношу шортлист;
