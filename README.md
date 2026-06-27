@@ -79,8 +79,16 @@ flowchart TD
     WIKI --> LINT
     LINT -.->|"пробелы"| SCOUT
 
-    classDef mono fill:#ffffff,stroke:#333,stroke-width:1px,color:#000;
-    class SCOUT,CAPTURE,TRIAGE,REJECT,PACKAGE,WIKI,OBS,PROFILE,QUERY,APPLY,DIGEST,DECIDE,PUBLISH,OUT,LINT mono;
+    classDef op fill:#ffffff,stroke:#333,stroke-width:1px,color:#000;
+    classDef store fill:#f2f2f2,stroke:#888,stroke-width:1px,color:#000;
+    classDef core fill:#1a1a1a,stroke:#1a1a1a,stroke-width:2px,color:#ffffff;
+    classDef decision fill:#ffffff,stroke:#000,stroke-width:2px,color:#000;
+    classDef profile fill:#ffffff,stroke:#999,stroke-width:1px,color:#333,stroke-dasharray:5 4;
+    class SCOUT,PACKAGE,QUERY,APPLY,DIGEST,DECIDE,PUBLISH,LINT,OBS op;
+    class CAPTURE,REJECT,OUT store;
+    class WIKI core;
+    class TRIAGE decision;
+    class PROFILE profile;
 ```
 
 Полный пайплайн агента: **scout → capture → triage → package → [query · apply · digest · decide · publish] → lint**.
