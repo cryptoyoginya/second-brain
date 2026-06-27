@@ -17,3 +17,23 @@ Untitled.canvas
 
 # Claude Code — локальные настройки/разрешения (машинно-зависимые)
 .claude/settings.local.json
+
+# Тяжёлые/бинарные источники raw/ — версионируем вику, а не сырьё (книги/видео/скрины живут локально)
+raw/**/*.pdf
+raw/**/*.epub
+raw/**/*.png
+raw/**/*.jpg
+raw/**/*.jpeg
+raw/**/*.webp
+raw/**/*.gif
+raw/**/*.heic
+raw/**/*.tiff
+raw/**/*.bmp
+raw/**/*.mp4
+raw/**/*.mov
+raw/**/*.m4v
+raw/**/*.webm
+raw/**/*.mkv
+raw/**/*.mp3
+raw/**/*.m4a
+raw/**/*.wav

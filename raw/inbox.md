@@ -4,8 +4,15 @@
 > Потом скажи агенту «разбери inbox»: он сходит по ссылкам, проведёт триаж и оформит.
 > Файлы (pdf, скрины, видео) клади прямо в подпапки raw/ — их подхватывает скан автоматически.
 
+## Очередь от Scout — longevity (2026-06-27)
+> Книги: для ingest нужен файл (кинь PDF в raw/) либо скажи «сделай по обзорам».
+- Outlive — Peter Attia — Medicine 3.0, протоколы · практика+интеллект · prio 5 · keep
+- The Longevity Diet — Valter Longo — питание, fasting-mimicking · практика · prio 4 · keep
+- Why We Sleep — Matthew Walker — сон как фундамент healthspan · практика · prio 4 · keep · ⚠️ часть данных критиковали
+- Lifespan — David Sinclair — биология старения (эпигенетика, NAD) · интеллект · prio 3 · skim · ⚠️ ряд заявлений считают хайповыми
+- тренд-watch: эпигенетические часы (биовозраст), GLP-1 как longevity-терапия · ⚠️ ранняя наука
+
 <!-- примеры:
 - https://example.com/статья-про-longevity
-- https://youtube.com/watch?v=... — лекция по КПТ
 - мысль: проверить связь дзэн ↔ модель ABC
 -->
