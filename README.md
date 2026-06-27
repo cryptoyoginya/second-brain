@@ -40,50 +40,48 @@ Obsidian), ведёт каталог `wiki/index.md` и журнал `wiki/log.m
 
 ## Как работает пайплайн
 
-**Общая картина:**
-
 ```mermaid
-flowchart LR
-    SRC["📥 Источники<br/>+ 🔭 SCOUT"] --> CUR["🧹 КУРИРОВАНИЕ<br/>отбор + оформление"]
-    CUR --> WIKI[("📚 wiki/<br/>граф знаний")]
-    WIKI --> USE["✨ ПОЛЬЗА<br/>ответы · действия<br/>решения · посты"]
-    WIKI --> OBS["🪟 Obsidian"]
-    WIKI --> LINT["🩹 LINT"]
-    PROFILE["👤 Обо мне<br/>+ Фокус"] -.-> CUR
-    PROFILE -.-> USE
-```
-
-<details>
-<summary>🧹 Детали: курирование (приём → триаж → оформление)</summary>
-
-```mermaid
+%%{init: {'theme':'neutral'}}%%
 flowchart TD
-    RAW[("raw/ + inbox.md")] -->|"SessionStart-хук находит новое"| TRIAGE{"⚖️ TRIAGE"}
-    PROFILE["👤 Обо мне + Фокус"] -.->|"чем полезно мне"| TRIAGE
-    TRIAGE -->|"reject"| REJECT["🗑️ _отклонено.md"]
-    TRIAGE -->|"keep · skim"| CRIT["🔍 Критическое чтение<br/>пометка спорного · disputed"]
-    CRIT --> PACKAGE["📦 PACKAGE<br/>5–15 страниц · вики-ссылки<br/>frontmatter: priority / benefit / verdict"]
-    PACKAGE --> WIKI[("📚 wiki/")]
-```
-</details>
+    SCOUT["SCOUT<br/>находит источники, приносит шортлист"]
+    CAPTURE["CAPTURE — приём в raw/<br/>raw/telegram/book.pdf · raw/inbox.md"]
+    TRIAGE{"TRIAGE<br/>keep / skim / reject"}
+    REJECT["reject<br/>wiki/_отклонено.md"]
+    PACKAGE["PACKAGE — оформление<br/>wiki/Модель ABC.md<br/>frontmatter: priority / benefit / verdict / disputed"]
+    WIKI["wiki/ — граф знаний<br/>wiki/index.md · wiki/log.md"]
+    OBS["Obsidian — граф для человека"]
+    PROFILE["профиль<br/>wiki/Обо мне.md + Фокус"]
+    QUERY["QUERY<br/>ответ + цитаты"]
+    APPLY["APPLY<br/>протокол / эксперимент"]
+    DIGEST["DIGEST<br/>проактивно на старте"]
+    DECIDE["DECIDE<br/>рекомендация под развилку"]
+    PUBLISH["PUBLISH<br/>outputs/post.md"]
+    OUT["outputs/"]
+    LINT["LINT — гигиена графа"]
 
-<details>
-<summary>✨ Детали: польза — payoff-операции</summary>
-
-```mermaid
-flowchart TD
-    WIKI[("📚 wiki/")] --> QUERY["❓ QUERY<br/>ответ из твоих знаний + цитаты"]
-    WIKI --> APPLY["✅ APPLY<br/>протокол / эксперимент под цель"]
-    WIKI --> DIGEST["🔔 DIGEST<br/>проактивно на старте + 1 шаг"]
-    WIKI --> DECIDE["🧭 DECIDE<br/>рекомендация под развилку"]
-    WIKI --> PUBLISH["📣 PUBLISH<br/>черновик поста / треда"]
-    PROFILE["👤 Фокус"] -.-> DIGEST
-    QUERY --> OUT[("📤 outputs/")]
+    SCOUT --> CAPTURE
+    CAPTURE -->|"SessionStart-хук"| TRIAGE
+    PROFILE -.->|"чем полезно мне"| TRIAGE
+    TRIAGE -->|"reject"| REJECT
+    TRIAGE -->|"keep / skim"| PACKAGE
+    PACKAGE --> WIKI
+    WIKI --> OBS
+    WIKI --> QUERY
+    WIKI --> APPLY
+    WIKI --> DIGEST
+    WIKI --> DECIDE
+    WIKI --> PUBLISH
+    PROFILE -.->|"Фокус"| DIGEST
+    QUERY --> OUT
     APPLY --> OUT
     DECIDE --> OUT
     PUBLISH --> OUT
+    WIKI --> LINT
+    LINT -.->|"пробелы"| SCOUT
+
+    classDef mono fill:#ffffff,stroke:#333,stroke-width:1px,color:#000;
+    class SCOUT,CAPTURE,TRIAGE,REJECT,PACKAGE,WIKI,OBS,PROFILE,QUERY,APPLY,DIGEST,DECIDE,PUBLISH,OUT,LINT mono;
 ```
-</details>
 
 Полный пайплайн агента: **scout → capture → triage → package → [query · apply · digest · decide · publish] → lint**.
 Анализ — **действие, ответ или решение под цель**:
