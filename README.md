@@ -39,29 +39,52 @@ Obsidian), ведёт каталог `wiki/index.md` и журнал `wiki/log.m
 
 ---
 
-## Конвейер Ingest
+## Как работает пайплайн
 
-```
-        ┌─────────────┐
-ты ─────▶│   raw/      │  любой формат: pdf · текст · html · скрины · видео · ссылки
- кидаешь └──────┬──────┘
-                │  (SessionStart-хук сам находит необработанное)
-                ▼
-        ┌───────────────┐
-        │  0. ТРИАЖ      │  польза для меня? → keep / skim / reject   (профиль «Обо мне»)
-        └──────┬────────┘   reject → _отклонено.md · пограничное → спросить
-                ▼
-        ┌───────────────┐
-        │  1. КРИТИКА    │  читаю целиком, помечаю спорное (disputed)
-        └──────┬────────┘
-                ▼
-        ┌───────────────┐
-        │  2. ЗАПИСЬ     │  5–15 страниц + [[ссылки]] + frontmatter (priority/benefit/verdict)
-        └──────┬────────┘
-                ▼
-        ┌───────────────┐     ┌──────────────┐
-        │   wiki/        │────▶│   Obsidian    │  граф знаний, который читает человек
-        └───────────────┘     └──────────────┘
+```mermaid
+flowchart TD
+    subgraph IN["📥 ВХОД · приём без трения"]
+        direction TB
+        SRC["Источник любого формата<br/>pdf · текст · html · скрин · видео · ссылка"]
+        SCOUT["🔭 SCOUT<br/>агент сам находит источники"]
+        RAW[("raw/ + inbox.md — сырьё, локально")]
+        SRC --> RAW
+        SCOUT --> RAW
+    end
+
+    subgraph CUR["🧹 КУРИРОВАНИЕ"]
+        direction TB
+        TRIAGE{"⚖️ TRIAGE<br/>keep · skim · reject"}
+        PACKAGE["📦 PACKAGE<br/>страницы + ссылки + оценка пользы + критика"]
+        REJECT["🗑️ _отклонено.md"]
+        TRIAGE -->|reject| REJECT
+        TRIAGE -->|"keep · skim"| PACKAGE
+    end
+
+    subgraph USE["✨ ПОЛЬЗА · pull"]
+        direction TB
+        QUERY["❓ QUERY — ответ из твоих знаний"]
+        APPLY["✅ APPLY — протокол / эксперимент"]
+        DIGEST["🔔 DIGEST — проактивно на старте"]
+        DECIDE["🧭 DECIDE — рекомендация под развилку"]
+        PUBLISH["📣 PUBLISH — черновик поста / треда"]
+    end
+
+    PROFILE["👤 Обо мне + Фокус<br/>что важно сейчас"]
+    WIKI[("📚 wiki/ — граф знаний")]
+    OBS["🪟 Obsidian"]
+    OUT[("📤 outputs/")]
+    LINT["🩹 LINT — гигиена графа"]
+
+    RAW -->|"SessionStart-хук находит новое"| TRIAGE
+    PROFILE -.->|"чем полезно мне"| TRIAGE
+    PACKAGE --> WIKI
+    WIKI --> OBS
+    WIKI --> USE
+    PROFILE -.->|"Фокус"| DIGEST
+    USE --> OUT
+    WIKI --> LINT
+    LINT -.->|"пробелы → что найти"| SCOUT
 ```
 
 Полный пайплайн агента: **scout → capture → triage → package → [query · apply · digest · decide · publish] → lint**.
