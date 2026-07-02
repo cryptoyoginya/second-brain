@@ -8,7 +8,7 @@ priority: 5
 benefit: [практика, интеллект]
 verdict: keep
 disputed: false
-tags: [тип/концепт, personal, кпт, психология, инструмент]
+tags: [тип/концепт, personal, кпт, психология, инструмент, рамка]
 ---
 
 # Модель ABC
