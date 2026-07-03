@@ -91,3 +91,41 @@
   height: 1px;
   background: linear-gradient(90deg, var(--interactive-accent), transparent);
 }
+
+/* ===== Card grid — сетка карточек (без плагинов) =====
+   Используется в заметке через raw-HTML:
+   <div class="sb-grid"> <a class="sb-card internal-link" href="Имя заметки"> … </a> </div>
+*/
+.markdown-rendered .sb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 1.3em 0;
+}
+
+.markdown-rendered a.sb-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-left: 3px solid var(--interactive-accent);
+  text-decoration: none !important;
+  color: var(--text-normal);
+  transition: transform 130ms ease, box-shadow 130ms ease, border-color 130ms ease;
+}
+.markdown-rendered a.sb-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  border-color: var(--interactive-accent);
+  background: var(--background-secondary);
+}
+.markdown-rendered a.sb-card .sb-emoji { font-size: 1.55em; line-height: 1; }
+.markdown-rendered a.sb-card .sb-title { font-weight: 700; font-size: 1.02em; letter-spacing: -0.2px; }
+.markdown-rendered a.sb-card .sb-desc  { color: var(--text-muted); font-size: 0.83em; line-height: 1.35; }
+
+@media (max-width: 480px) {
+  .markdown-rendered .sb-grid { grid-template-columns: 1fr; }
+}
