@@ -8,36 +8,67 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
+      "query": "tag:#продукт",
+      "color": {
+        "a": 1,
+        "rgb": 16729402
+      }
+    },
+    {
       "query": "tag:#тип/персона",
-      "color": { "a": 1, "rgb": 15381768 }
+      "color": {
+        "a": 1,
+        "rgb": 15381768
+      }
     },
     {
       "query": "path:raw/",
-      "color": { "a": 1, "rgb": 7041664 }
+      "color": {
+        "a": 1,
+        "rgb": 7041664
+      }
     },
     {
       "query": "[domain:ai]",
-      "color": { "a": 1, "rgb": 9133302 }
+      "color": {
+        "a": 1,
+        "rgb": 9133302
+      }
     },
     {
       "query": "[domain:engineering]",
-      "color": { "a": 1, "rgb": 3900150 }
+      "color": {
+        "a": 1,
+        "rgb": 3900150
+      }
     },
     {
       "query": "[domain:personal]",
-      "color": { "a": 1, "rgb": 15485081 }
+      "color": {
+        "a": 1,
+        "rgb": 15485081
+      }
     },
     {
       "query": "[domain:religion]",
-      "color": { "a": 1, "rgb": 16096779 }
+      "color": {
+        "a": 1,
+        "rgb": 16096779
+      }
     },
     {
       "query": "[domain:science]",
-      "color": { "a": 1, "rgb": 440020 }
+      "color": {
+        "a": 1,
+        "rgb": 440020
+      }
     },
     {
       "query": "[domain:business]",
-      "color": { "a": 1, "rgb": 1096065 }
+      "color": {
+        "a": 1,
+        "rgb": 1096065
+      }
     }
   ],
   "collapse-display": false,
@@ -50,6 +81,6 @@
   "repelStrength": 9.5,
   "linkStrength": 0.55,
   "linkDistance": 170,
-  "scale": 0.55,
+  "scale": 0.3587320199366097,
   "close": true
 }
