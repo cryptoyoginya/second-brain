@@ -129,3 +129,29 @@
 @media (max-width: 480px) {
   .markdown-rendered .sb-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== Граф — оформление ===== */
+.graph-view.color-fill {
+  /* мягкое затемнение фона под островами (тёмная тема) */
+  --graph-line: color-mix(in srgb, var(--text-muted) 22%, transparent);
+  --graph-node-unresolved: color-mix(in srgb, var(--text-faint) 45%, transparent);
+}
+
+/* Фокус/наведение — узел «дышит» и подсвечивается акцентом */
+.graph-view.color-circle {
+  --graph-node-focused: var(--interactive-accent);
+}
+
+/* Панель управления графом — компактнее и в стиле карточек */
+.graph-controls {
+  border-radius: 12px;
+  border: 1px solid var(--background-modifier-border);
+  background: color-mix(in srgb, var(--background-secondary) 92%, transparent);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+}
+
+/* Локальный граф на странице — аккуратная рамка */
+.workspace-leaf-content[data-type="localgraph"] .view-content {
+  border-radius: 12px;
+}
