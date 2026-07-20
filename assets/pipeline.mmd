@@ -1,6 +1,6 @@
 %%{init: {'theme':'neutral'}}%%
 flowchart TD
-    SCOUT["SCOUT<br/>находит источники, приносит шортлист"]
+    SCOUT["SCOUT — /scout<br/>находит источники, приносит шортлист"]
     CAPTURE["CAPTURE — приём в raw/<br/>raw/telegram/book.pdf · raw/inbox.md"]
     TRIAGE{"TRIAGE<br/>keep / skim / reject"}
     REJECT["reject<br/>wiki/_отклонено.md"]
@@ -8,13 +8,11 @@ flowchart TD
     WIKI["wiki/ — граф знаний<br/>wiki/index.md · wiki/log.md"]
     OBS["Obsidian — граф для человека"]
     PROFILE["профиль<br/>wiki/Обо мне.md + Фокус"]
-    QUERY["QUERY<br/>ответ + цитаты"]
-    APPLY["APPLY<br/>протокол / эксперимент"]
-    DIGEST["DIGEST<br/>проактивно на старте"]
-    DECIDE["DECIDE<br/>рекомендация под развилку"]
-    PUBLISH["PUBLISH<br/>outputs/post.md"]
+    QUERY["QUERY — вопрос в чате<br/>ответ + цитаты"]
+    DIGEST["DIGEST — /digest<br/>проактивно на старте"]
+    PUBLISH["PUBLISH — /publish<br/>темы для постов/статей"]
     OUT["outputs/"]
-    LINT["LINT — гигиена графа"]
+    LINT["LINT — техобслуживание графа"]
 
     SCOUT --> CAPTURE
     CAPTURE -->|"SessionStart-хук"| TRIAGE
@@ -24,14 +22,10 @@ flowchart TD
     PACKAGE --> WIKI
     WIKI --> OBS
     WIKI --> QUERY
-    WIKI --> APPLY
     WIKI --> DIGEST
-    WIKI --> DECIDE
     WIKI --> PUBLISH
     PROFILE -.->|"Фокус"| DIGEST
     QUERY --> OUT
-    APPLY --> OUT
-    DECIDE --> OUT
     PUBLISH --> OUT
     WIKI --> LINT
     LINT -.->|"пробелы"| SCOUT
@@ -41,7 +35,7 @@ flowchart TD
     classDef core fill:#1a1a1a,stroke:#1a1a1a,stroke-width:2px,color:#ffffff;
     classDef decision fill:#ffffff,stroke:#000,stroke-width:2px,color:#000;
     classDef profile fill:#ffffff,stroke:#999,stroke-width:1px,color:#333,stroke-dasharray:5 4;
-    class SCOUT,PACKAGE,QUERY,APPLY,DIGEST,DECIDE,PUBLISH,LINT,OBS op;
+    class SCOUT,PACKAGE,QUERY,DIGEST,PUBLISH,LINT,OBS op;
     class CAPTURE,REJECT,OUT store;
     class WIKI core;
     class TRIAGE decision;
